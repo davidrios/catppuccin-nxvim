@@ -9,10 +9,12 @@ local M = {}
 function M.get()
 	return {
 		-- which-key popup
-		WhichKey = { fg = C.maroon }, -- the key chord
+		WhichKey = { link = "NormalFloat" }, -- the key chord
 		WhichKeyGroup = { fg = C.blue }, -- a "+prefix" group entry
-		WhichKeyDesc = { fg = C.mauve }, -- the action description
+		WhichKeyDesc = { fg = C.pink }, -- the action description
 		WhichKeySeparator = { fg = C.overlay0 },
+		WhichKeyBorder = { link = "FloatBorder" }, -- the popup border
+		WhichKeyValue = { fg = C.overlay0 }, -- a key's mapped value
 
 		-- statusline segments
 		StatusLineMode = { fg = C.base, bg = C.mauve, style = { "bold" } }, -- NORMAL/INSERT/… badge
@@ -46,6 +48,44 @@ function M.get()
 		NxTreeGitModified = { fg = C.yellow },
 		NxTreeGitDeleted = { fg = C.red },
 		NxTreeGitDirty = { fg = C.yellow },
+
+		-- nvim-tree's well-known group names, kept so custom plugins can reuse
+		-- these conventional catppuccin values instead of redefining their own.
+		NvimTreeFolderName = { fg = C.blue },
+		NvimTreeFolderIcon = { fg = C.blue },
+		NvimTreeNormal = { fg = C.text, bg = O.transparent_background and C.none or C.mantle },
+		NvimTreeOpenedFolderName = { fg = C.blue },
+		NvimTreeEmptyFolderName = { fg = C.blue },
+		NvimTreeIndentMarker = { fg = C.overlay0 },
+		NvimTreeWinSeparator = {
+			fg = O.transparent_background and C.surface1 or C.base,
+			bg = O.transparent_background and C.none or C.base,
+		},
+		NvimTreeRootFolder = { fg = C.lavender, style = { "bold" } },
+		NvimTreeSymlink = { fg = C.pink },
+		NvimTreeStatuslineNc = { fg = C.mantle, bg = C.mantle },
+		NvimTreeGitDirty = { fg = C.yellow },
+		NvimTreeGitNew = { fg = C.blue },
+		NvimTreeGitDeleted = { fg = C.red },
+		NvimTreeSpecialFile = { fg = C.flamingo },
+		NvimTreeImageFile = { fg = C.text },
+		NvimTreeOpenedFile = { fg = C.pink },
+
+		-- telescope's well-known group names, kept so custom plugins can reuse
+		-- these conventional catppuccin values instead of redefining their own.
+		TelescopeBorder = { link = "FloatBorder" },
+		TelescopeNormal = { link = "NormalFloat" },
+		TelescopePreviewNormal = { link = "TelescopeNormal" },
+		TelescopePromptNormal = { link = "TelescopeNormal" },
+		TelescopeResultsNormal = { link = "TelescopeNormal" },
+		TelescopeTitle = { link = "FloatTitle" },
+		TelescopeSelectionCaret = { fg = C.flamingo, bg = C.surface0 },
+		TelescopeSelection = { fg = C.flamingo, bg = C.surface0, style = { "bold" } },
+		TelescopeMatching = { fg = C.blue },
+		TelescopePromptPrefix = { fg = C.flamingo },
+		TelescopePreviewTitle = O.float.solid and { fg = C.crust, bg = C.green } or nil,
+		TelescopePromptTitle = O.float.solid and { fg = C.crust, bg = C.red } or nil,
+		TelescopeResultsTitle = O.float.solid and { fg = C.crust, bg = C.lavender } or nil,
 	}
 end
 
